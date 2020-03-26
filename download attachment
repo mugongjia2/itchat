@@ -1,0 +1,8 @@
+import itchat
+
+@itchat.msg_register([itchat.content.RECORDING, itchat.content.TEXT, itchat.content.ATTACHMENT,itchat.content.MAP,itchat.content.PICTURE], isGroupChat = True)
+def download_files(msg):
+    msg.download(msg.fileName)   # 通过文件名下载文件
+
+itchat.auto_login(hotReload = True)
+itchat.run()
